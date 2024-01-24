@@ -20,7 +20,7 @@ protocol LifetimeTrackerViewable {
     func update(with vm: BarDashboardViewModel)
 }
 
-class CircularDashboardViewController: UIViewController, LifetimeTrackerViewable {
+public class CircularDashboardViewController: UIViewController, LifetimeTrackerViewable {
 
     @IBOutlet weak var roundView: UIView!
 
@@ -52,7 +52,7 @@ class CircularDashboardViewController: UIViewController, LifetimeTrackerViewable
         return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! CircularDashboardViewController
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -244,11 +244,11 @@ extension CircularDashboardViewController: PopoverViewControllerDelegate {
 
 extension CircularDashboardViewController: UIPopoverPresentationControllerDelegate {
 
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
 
-    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+    public func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         popoverPresentationController.permittedArrowDirections = .any
         popoverPresentationController.sourceView = self.roundView
     }
